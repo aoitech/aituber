@@ -8,7 +8,9 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 class OpenAIAdapter:
   def __init__(self):
-    self.system_prompt = "あなたは端的に発言するAIです。"
+    # system_promptはsystem_prompt.txtから読み込む
+    with open("system_prompt.txt", "r", encoding="utf-8") as f:
+      self.system_prompt = f.read()
     pass
   def _create_message(self, role, message):
     return {
@@ -29,7 +31,7 @@ class OpenAIAdapter:
     ]
     res = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        message=messages,
+        messages=messages,
   )
     return(res["choices"][0]["message"]["content"])
 
