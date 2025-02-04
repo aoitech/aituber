@@ -24,8 +24,10 @@ class OBSAdapter:
 if __name__ == '__main__':
    obsAdapter = OBSAdapter()
    import random
-   text = "Questionの番号は" + str(random.randint(0, 100))
-   obsAdapter.set_question(text)
+   question_text = "Questionの番号は" + str(random.randint(0, 100)) + "になりました"
+   obsAdapter.set_question(question_text)
+   answer_text = "Answerの番号は" + str(random.randint(0, 100)) + "になりました"
+   obsAdapter.set_question(answer_text)
 
 
 
