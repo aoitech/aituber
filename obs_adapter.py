@@ -16,6 +16,9 @@ class OBSAdapter:
   def set_question(self, text: str):
      self.ws.set_input_settings(name="Question",
                                 settings={"text": text}, overlay=True)
+  def set_answer(self, text: str):
+     self.ws.set_input_settings(name="Answer",
+                                settings={"text": text}, overlay=True)
 
 # fileを直接指定した時
 if __name__ == '__main__':
@@ -23,4 +26,6 @@ if __name__ == '__main__':
    import random
    text = "Questionの番号は" + str(random.randint(0, 100))
    obsAdapter.set_question(text)
+
+
 
